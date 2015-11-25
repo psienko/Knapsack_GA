@@ -14,5 +14,17 @@ public class Population {
 	public List<Individual> getPopulation() {
 		return individuals;
 	}
+	
+	public Individual getIndividual(int index) {
+		return individuals.get(index);
+	}
+	
+	public void setIndividual(int index, Individual individual) {
+		individuals.set(index, individual);
+	}
+	
+	public int size() {
+		return individuals.size();
+	}
 
 }

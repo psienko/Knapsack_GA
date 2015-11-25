@@ -1,26 +1,45 @@
 package pl.prz.ga;
 
 public class Individual {
-	private int number;
-	private double volume;
-	private double value;
+	private byte [] chromosome;
+	private double totalValue;
+	private double totalVolume;
 	
-	public Individual(int number, double volume, double value) {
-		this.number = number;
-		this.volume = volume;
-		this.value = value;
-		
+	public byte [] getChromosome() {
+		return chromosome;
 	}
 	
-	public int getNumber() {
-		return number;
+	public void setChromosome(byte [] chromosome) {
+		this.chromosome = chromosome;
 	}
 	
-	public double getVolume() {
-		return volume;
+	public double getTotalVolume() {
+		return totalVolume;
 	}
 	
-	public double getValue() {
-		return value;
+	public void setTotalVolume(double totalVolume) {
+		this.totalVolume = totalVolume;
+	}
+	
+	public double getTotalValue() {
+		return totalValue;
+	}
+	
+	public void setTotalValue(double totalValue) {
+		this.totalValue = totalValue;
+	}
+	
+	public void setGene(int index, byte value) {
+		chromosome[index] = value;
+	}
+	
+	public byte getGene(int index) {
+		return chromosome[index];
+	}
+	
+	public Individual(byte [] chromosome) {
+		this.chromosome = chromosome;
+		totalVolume = 0.0;
+		totalValue = 0.0;
 	}
 }
