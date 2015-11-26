@@ -26,5 +26,11 @@ public class Population {
 	public int size() {
 		return individuals.size();
 	}
+	
+	public double totalValue(){
+		double total = 0.0;
+		for(Individual individual : individuals) { total += individual.getTotalValue();}
+		return total;
+	}
 
 }

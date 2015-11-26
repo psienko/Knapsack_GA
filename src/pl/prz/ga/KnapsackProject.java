@@ -53,7 +53,7 @@ public class KnapsackProject {
 	}
 	
 	public static void main(String[] args) {
-		int numberOfChromosomeInPopulation = 12;
+		int numberOfChromosomeInPopulation = 1000;
 		int maxNumberOfGeneration = 50;
 		int generation = 1;
 		double bestValue = 0.0;
@@ -71,7 +71,7 @@ public class KnapsackProject {
 		}
 		
 		// Main loop
-		while(generation < maxNumberOfGeneration){
+		while(generation <= maxNumberOfGeneration){
 			System.out.println("GENERATION : " + Integer.toString(generation));
 			// Calculate value and weight
 			for(int individualIndex = 0; individualIndex < population.getPopulation().size(); individualIndex++) {
@@ -110,9 +110,11 @@ public class KnapsackProject {
 			int rndSelected;
 			
 			Individual elitist = new Individual(population.getIndividual(bestIndividual).getChromosome());
+			
 			for(int i = 0; i<numberOfChromosomeInPopulation -1; i++) {
 				rndSum = 0.0;
-				rnd = Math.random();
+				
+				rnd = (Math.random() * population.totalValue());
 				rndSelected = 0;
 				
 				for(Individual individual : population.getPopulation()) {
@@ -126,6 +128,8 @@ public class KnapsackProject {
 				}
 				if (rndSelected < population.size()) {
 					newGeneration.push(new Individual(population.getIndividual(rndSelected).getChromosome()));
+				} else {
+					newGeneration.push(new Individual(population.getIndividual(rndSelected-1).getChromosome()));
 				}
 			}
 			
