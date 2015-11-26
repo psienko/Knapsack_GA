@@ -10,7 +10,7 @@ import java.util.List;
 
 public class KnapsackProject {
 	
-	private static int knapsackVolume = 0;
+	private static double knapsackVolume = 0;
 	private static int lineNo = 0;
 	private static Population readItems = new Population();
 	private static List<Item> items = new ArrayList<Item>();
@@ -31,9 +31,9 @@ public class KnapsackProject {
 			while ((line = br.readLine()) != null) {
 				lineNo ++;
 				if (lineNo == 1) {
-					knapsackVolume = Integer.parseInt(line);
+					knapsackVolume = Double.parseDouble(line);
 				} else {
-					String [] params = line.split(" ");
+					String [] params = line.split("\t");
 					int iNo = Integer.parseInt(params[0]);
 					double iVol = Double.parseDouble(params[1]);
 					double iVal = Double.parseDouble(params[2]);
@@ -97,7 +97,7 @@ public class KnapsackProject {
 				individual.setTotalValue(totalValue);
 				individual.setTotalVolume(totalVolume);
 				sumValue += totalValue;
-				System.out.print("Value: " + individual.getTotalValue() + " Volume: " + individual.getTotalVolume() + " ");
+				System.out.print("Value: " + individual.getTotalValue() + " \t Volume: " + individual.getTotalVolume() + " ");
 				for(byte test : individual.getChromosome()) {
 					System.out.print(test);
 				}
