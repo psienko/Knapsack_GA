@@ -53,9 +53,10 @@ public class KnapsackProject {
 	}
 	
 	public static void main(String[] args) {
-		int numberOfChromosomeInPopulation = 1000;
-		int maxNumberOfGeneration = 50;
+		int numberOfChromosomeInPopulation = 10;
+		int maxNumberOfGeneration = 10;
 		int generation = 1;
+		double mutationRange = 0.01;
 		double bestValue = 0.0;
 		int bestIndividual = 0;
 		double sumValue = 0.0;
@@ -163,7 +164,7 @@ public class KnapsackProject {
 			// Perform mutation
 			for(Individual individual : population.getPopulation()) {
 				for(int geneIndex=0; geneIndex < individual.getChromosome().length; geneIndex ++ ) {
-					if (rnd < 0.01) { // Successful mutation for gen with geneIndex index
+					if (Math.random() < mutationRange) { // Successful mutation for gen with geneIndex index
 						if (individual.getGene(geneIndex) == 0)
 							individual.setGene(geneIndex, (byte) 1);
 						else
