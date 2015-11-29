@@ -42,4 +42,16 @@ public class Individual {
 		totalVolume = 0.0;
 		totalValue = 0.0;
 	}
+	
+	public void printAll() {
+		System.out.print("Value: " + totalValue + "\t | \t Volume: " + totalVolume + "\t | \t");
+		this.printChromosome();
+		System.out.println();
+	}
+	
+	public void printChromosome() {
+		for (byte gene : chromosome) {
+			System.out.print(gene);
+		}
+	}
 }
